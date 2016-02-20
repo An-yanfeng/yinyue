@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+	<title>音乐播放器</title>
+	<meta charset = "utf-8"/>
+	<link rel="stylesheet" href="./stylesheets/index.css"/>
+<script src="./scripts/index.js"></script>
+</head>
+<body>
+     <!--       让音乐播放        -->
+	<audio src="./musics/1.mp3" id="audio"></audio>
+<!--               -->
+
+<div class="music" id="divplayer">
+	<div class="m_player_dock" id="divsongframe">
+        <div class="music_info" id="divsonginfo">
+			<a href="" class="album_pic">
+				<img src="./img/ren.jpg"style="width:90px;height:90px;">
+			</a>
+			<div class="music_info_main">
+				<p class="music_name"><span id="musicname">听我想听的歌!</span><a class="icon_radio"></a>
+				</p>
+				<p class="singer_name">QQ音乐</p>
+				<p class="piay_date" id="ptime"></p>
+				<p class="music_op" style="display:none;">
+					<strong class="btn_like"></strong>
+					<strong class="btn_share"></strong>
+					<strong class="btn_kge"></strong>
+				</p>
+			</div>
+		</div>
+
+		<!--上一首 播放 下一首 随机 -->
+		<div class="bar_op">
+      
+		<strong class="prev_bt" id="prev_bt"></strong>
+		
+		<strong class="play_bt" id="btnplay"></strong>
+		
+		<strong class="next_bt" id="next_bt"></strong>
+		<strong class="cycle_bt" id="btnPlayway"></strong>
+
+       <!--      音量调节     -->
+		<p class="volume" title="音量调节">
+			<span class="volume_icon" id="spanmute"></span>
+      <!-- <span class="volume_mute" id="spanmute"></span> -->
+
+			<span class="volume_regulate" id="spanvolume">
+
+			<span class="volume_bar" style="width: 100%;" id="spanvolumebar"></span>
+
+			<span class="volume_op" style="left: 100%;" id="spanvolumeop"></span>
+			</span>
+		</p>
+      </div>
+
+
+        <!-- 顺序播放  随机播放-->
+      <p class="playbar_cp_select" id="divselect" style="display: none;">
+          <strong class="ordered_bt" >
+          </strong>
+          <strong class="unordered_bt" >
+          </strong>
+          <strong class="cycle_single_bt" ></strong>
+          <strong class="cycle_bt" >
+          </strong>
+        </p>
+
+
+
+      <!-- ------------进度条------------- -->
+      <p class="player_bar">
+      	<span class="player_bg_bar" id="spanplayer_bgbar"></span>
+      	<!-- <span class="download-bar" id="downloadbar"></span> -->
+      	<span class="play_current_bar" style="width: 0%;" id="spanplaybar"></span>
+          <span class="progress_op" style="left: 0%;" id="spanprogress_op"></span>
+        </p>
+      <div class="time_show" style="left: 11px; bottom: 8px; display: none;">
+          <p id="time_show">00:14</p>
+          <span class="icon_arrow_foot">
+            <i class="foot_border"></i>
+            <i class="foot_arrow"></i>
+          </span>
+        </div>
+      </div>
+
+	<!-- ---------------------- -->
+	<span class="active_tip" id="spanaddtips" style="display: none; top: -30px;">
+   </span>
+	<span class="open_list" id="spansongnum1" style="display:block;">
+	<span></span>
+</span>
+	<span class="btn_lyrics-disabled"id="disabled">歌词(L)</span>
+	<div class="folded_bt" id="btnfold"><span>点击收起/展开</span></div>
+<!-- ------------------------ -->
+<div class="play_list_frame" id="divplayframe">
+	<div class="play_list_title">
+		<!--单曲修改-->
+		<ul id="tab_container" style="width:2770px;">
+			<li id="palylist_tab"class="current"><a href="">播放列表</a></li>
+			<!-- <li><a href="">单曲电台列表</a></li> -->
+		</ul>
+		<span id="clear_list" class="clear_list">清空列表</span>
+		<div class="close_list" id="btnclose"></div>
+	</div>
+	<div class="play_list" id="divlistmain">
+		<!--列表为空提示-s-->
+		<!-- <div class="play-list-point">
+			<div>
+				<h4>您当前还未添加任何歌曲</h4>
+				<p>"在""选择试听我们推荐的歌曲"</p>
+				<p>"在""中查找您想听的歌曲。"</p>
+				<p></p>
+			</div>
+		</div> -->
+		<!--单曲修改 空列表-->
+		<!-- <div class="play-list-point">
+			<div>
+				<h4>哎呀，这首歌和其他歌曲还不熟</h4>
+				<p>你可以：</p>
+				<p>换 另一首歌曲<span></span> 重新发起单曲电台</p>
+				<p>什么是单曲电台？</p>
+				<p>当你听到一首喜欢的歌曲，我们会针对这首歌曲，为你生成一批<span> 你可能也喜欢的歌曲列表</span></p>
+			</div>
+		</div> -->
+
+		<!-- -->
+		<div class="play_list_main" id="divplaylist" style="display: block; left: 0px; top: 0px;">
+	<!--播放列表-->
+	<div class="single_list" id="divsonglist">
+		<ul>
+			<!-- <li mid="j0" class="">
+				<div class="music_name">我们不该这样的 (《北上广不相信眼泪》电视剧片尾曲)</div>
+				<strong class="singer_name">张赫宣</strong>
+				<strong class="play_time">03:46</strong> -->
+
+				<!-- <div class="list_cp">
+					<strong class="btn_like">
+					</strong>
+					<strong class="btn_share">
+					</strong>
+					<strong class="btn_fav">
+					</strong>
+					<strong class="btn_del">
+					</strong>
+				</div> -->
+			<!-- </li> -->
+		</ul>
+	</div>
+	<div id="divalbumlist" style="display:none;">
+    </div>
+</div>    
+<!--       -->
+<div class="play_list_scroll">
+	<span id="sanbar" class="play_list_scrolling" style="height:212px;left:3px;top:0px;"></span>
+</div>
+
+
+<!-- 单曲电台列表- -->
+	</div>
+</div>
+
+
+<!-- 歌词内容- -->
+<div class="y_player_lyrics" id="player_lyrics_pannel"style="display:none;">
+	<div class="lyrics_text" id="qrc_ctn">
+		<p id="line_null">
+			<span class="current">&nbsp;</span></p>
+		<p id="line_0">
+			<span class>一个人 - 张艺兴</span>
+		</p>
+		<p id="line_1">词：张艺兴</p>
+		<p id="line_2"><span class="">曲：张艺兴</span></p>
+		<p id="line_3"><span class="current">....<span></p>
+		<p id="line_4"><span>没有人在意我</span></p>
+		<p id="line_5"><span>我在一个人的角落</span></p>
+		<p id="line_6"><span>等待中受折磨</span></p>
+		<p id="line_7"><span>不会有人再关心我</span></p>
+		<p id="line_8"><span>灯光照射着我</span></p>
+		<p id="line_9"><span>影子显得孤单冷漠</span></p>
+
+	</div>
+
+	<div class="lyrics_bg"></div>
+	<span class="close_lyrics" id="closelrcpannel"></span>
+</div>
+<div class="single_radio_tip" id="single_radio_tip" style="display:none;"><a href="javascript:;" class="close_tips"></a>
+</div>
+</div>
+
+
+<!---           -->
+<div class="mod_rank"id="id_forme">
+	<div class="title">
+		<h2>排行榜</h2>
+	</div>
+<div class="mod_t_play">
+<a href="#;"name="script_btn" class="mod_play"></a>
+<a href="#;"name="script_btn" class="mod_add"></a>
+</div>
+<div class="mod_content">
+<ol class="mod_rank_list" id="topSongList">
+	<li class="rank_top"></li>
+</ol>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
